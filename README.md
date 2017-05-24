@@ -54,8 +54,7 @@
     POST: {}, // PHP $_POST
     GET: {}, // PHP $_GET
     FILES: {}, // PHP $_FILES
-    // 请求操作路由日志
-    operation: {
+    operation: { // 请求操作路由日志
         0: {
             level: "info", 
             category: "application", 
