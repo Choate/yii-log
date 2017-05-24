@@ -24,8 +24,6 @@ class JsonFileTarget extends FileTarget
         $this->messages = array_merge($this->messages, static::filterMessages($messages, $this->getLevels(), $this->categories, $this->except));
         $count = count($this->messages);
         if ($count > 0 && ($final || $this->exportInterval > 0 && $count >= $this->exportInterval)) {
-            echo $count;
-            var_dump($count >= $this->exportInterval);
             $oldExportInterval = $this->exportInterval;
             $this->exportInterval = 0;
             $this->export();
