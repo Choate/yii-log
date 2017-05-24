@@ -112,13 +112,14 @@ class JsonFileTarget extends FileTarget
      * @inheritdoc
      */
     protected function getContextMessage() {
-        $context = ArrayHelper::filter($GLOBALS, $this->logVars);
-        $result = [];
-        foreach ($context as $key => $values) {
-            $result[trim($key, '_')] = $values;
+        $context = [];
+        foreach ($this->logVars as $name) {
+            if (!empty($GLOBALS[$name])) {
+                $context[trim($name, '_')] = $GLOBALS[$name];
+            }
         }
 
-        return $result;
+        return $context;
     }
 
     private function getRequestInfo() {
